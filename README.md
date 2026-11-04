@@ -23,7 +23,7 @@ Kirmizi and Siirt are two pistachio species that sell in different markets, so s
 
 https://github.com/2026aj05396-tech/pistachio-species-classifier
 
-Live app: <I need to add link after deployment>
+Live app: https://pistachio-species-classifier-5xuvmt7mqdjnklegyxnwp4.streamlit.app/
 
 Repository layout:
 
