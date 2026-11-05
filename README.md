@@ -53,16 +53,14 @@ Hyperparameters: Logistic Regression (max_iter=1000); Decision Tree (max_depth=6
 
 ### Observations
 
-<!-- REWRITE THESE IN YOUR OWN WORDS before submitting. -->
-
 | ML Model Name | Observation about model performance |
 |---|---|
-| Logistic Regression | TODO |
-| Decision Tree | TODO |
-| KNN | TODO |
-| Naive Bayes | TODO |
-| Support Vector Machine | TODO |
-| **Overall winner for this dataset** | TODO |
+| Logistic Regression | Accuracy of 0.9116 and AUC of 0.9748, making it the second-best model on both metrics. The confusion matrix is 231/16/22/161, meaning it missed 22 Siirt cases (recall of 0.8798). Since a linear model performs this well, the classes appear to be almost linearly separable. |
+| Decision Tree | The weakest performer across all metrics, with an accuracy of 0.8558, AUC of 0.8870, and MCC of 0.7041. I limited the tree depth to 6 and set the minimum leaf size to 5. A single tree gives coarser probability estimates, which likely brings down its AUC. |
+| KNN | Achieved an accuracy of 0.9000 and AUC of 0.9506. Being distance-based, it is likely sensitive to feature scaling (the features here are standardised). Despite being a non-linear model, it performs slightly worse than Logistic Regression, and the results also depend on the choice of k=7. |
+| Naive Bayes | Achieved the highest recall among the non-SVM models (0.9071), but had the lowest precision after the Decision Tree (0.8426), meaning it tends to over-predict Siirt. The independence assumption is not ideal here because some features are strongly correlated, for example Area and Convex_Area (correlation 0.94). |
+| Support Vector Machine | The best-performing model across all six metrics, with an accuracy of 0.9372, AUC of 0.9852, F1 of 0.9264, and MCC of 0.8717. The RBF kernel probably helps it capture the small non-linear patterns in the data, while keeping the classification errors balanced (14 and 13 misclassifications per class). |
+| **Overall winner for this dataset** | **Support Vector Machine.** It has the best score on every metric, and its MCC of 0.8717 is clearly ahead of the runner-up, Logistic Regression (0.8188). MCC is a useful tiebreaker here because the classes are slightly imbalanced (about 57% Kirmizi, 43% Siirt). |
 
 ## How to run
 
